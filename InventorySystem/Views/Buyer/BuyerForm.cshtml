@@ -1,0 +1,62 @@
+﻿@model GDP.ViewModel.CustomerFormViewModel
+@{
+    ViewBag.Title = "NEw";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Buyer</h2>
+@using (Html.BeginForm("Save", "Buyer"))
+{ 
+<div class="form-group">
+    @Html.LabelFor(m => m.Buyer.FName)
+    @Html.TextBoxFor(m => m.Buyer.FName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Buyer.FName)
+</div>
+    <div class="form-group">
+    @Html.LabelFor(m => m.Buyer.MName)
+    @Html.TextBoxFor(m => m.Buyer.MName, new { @class = "form-control" })
+        
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Buyer.LName)
+    @Html.TextBoxFor(m => m.Buyer.LName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Buyer.LName)
+</div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Buyer.Location.address)
+        @Html.TextBoxFor(m => m.Buyer.Location.address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Buyer.Location.address)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Buyer.Location.city)
+        @Html.TextBoxFor(m => m.Buyer.Location.city, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Buyer.Location.zipcode)
+        @Html.TextBoxFor(m => m.Buyer.Location.zipcode, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Buyer.Location.phone)
+        @Html.TextBoxFor(m => m.Buyer.Location.phone, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Buyer.Location.email)
+        @Html.TextBoxFor(m => m.Buyer.Location.email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Buyer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Buyer.MembershipTypeId, new SelectList(Model.MembershipType,"Id", "Name"),"Select Membership Type", new {@class="form-control"})
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Buyer.Verified) Verified
+        </label>
+    </div>
+    @Html.HiddenFor(m=>m.Buyer.Location.id)
+    @Html.HiddenFor(m => m.Buyer.BuyerId)
+    <button type="submit" value="Next" class="btn btn-primary"  >Save</button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

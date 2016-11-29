@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GDP.Models.Seller>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index </h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "New")
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.zipcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.email)
+        </th>
+        <th>
+    </tr> @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Location.address)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Location.city)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Location.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Location.zipcode)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Location.email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

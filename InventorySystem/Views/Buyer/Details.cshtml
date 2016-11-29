@@ -1,0 +1,94 @@
+﻿@model GDP.ViewModel.CustomerFormViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Buyer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buyer.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buyer.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buyer.MName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buyer.MName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buyer.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buyer.LName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Buyer.Location.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Buyer.Location.address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Buyer.Location.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Buyer.Location.city)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Buyer.Location.zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Buyer.Location.zipcode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Buyer.Location.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Buyer.Location.phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.Buyer.Location.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.Buyer.Location.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Buyer.MembershipType.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buyer.MembershipType.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Buyer.Verified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buyer.Verified)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Buyer.BuyerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

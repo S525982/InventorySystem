@@ -1,0 +1,30 @@
+﻿@model GDP.ViewModel.SellerProduct
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Product</h2>
+
+@using (Html.BeginForm("Create","Product"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m=>m.Product.Name)
+        @Html.TextBoxFor(m => m.Product.Name, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Product.Type)
+        @Html.TextBoxFor(m => m.Product.Type, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Product.Code)
+        @Html.TextBoxFor(m => m.Product.Code, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Product.Size)
+        @Html.TextBoxFor(m => m.Product.Size, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Product.Color)
+        @Html.TextBoxFor(m => m.Product.Color, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Product.Quantity)
+        @Html.TextBoxFor(m => m.Product.Quantity, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Product.Comment)
+        @Html.TextBoxFor(m => m.Product.Comment, new { @class = "form-control" })
+         @Html.HiddenFor(s => s.Product.ProductId)
+        @Html.HiddenFor(s => s.Seller.id)
+        <button type="submit" class="btn btn-danger" >Save</button>
+    </div>
+}

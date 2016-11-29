@@ -1,0 +1,68 @@
+﻿@model IEnumerable<GDP.Models.Buyer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buyer List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "New")
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Verified)
+        </th>
+        <th>
+            Discount Rate
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.address)
+        </th>
+        <th></th>
+    </tr>@foreach (var item in Model)
+    {
+
+    <tr>
+        @*<td>
+            @Html.ActionLink(item.FName, "Edit", "Buyer", new  { id=item.BuyerId})
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.FName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Verified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MembershipType.DiscountRate)%
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.address)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BuyerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BuyerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BuyerId })
+        </td>
+    </tr>
+}
+
+</table>
